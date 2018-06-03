@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="category-item column">
+			<h5 class="category-item__header">
+				<span class="header__title">{{categoryItem.name}}</span>
+			</h5>
+			<div class="category-item__description">
+				{{categoryItem.description}}
+			</div>
+			<div class="category-item__controls">
+				<a href="{{url_for('showCategory', catalog_id = categoryItem.category_id)}}" class="controls__back">Back</a>
+
+				{% if 'username' in session and creator.id == session['user_id'] %}
+					<a href="{{url_for('editCategoryItem', catalog_id = categoryItem.category_id, item_id = categoryItem.id)}}" class="controls__edit">Edit</a>
+					<a href="{{url_for('deleteCategoryItem', catalog_id = categoryItem.category_id, item_id = categoryItem.id)}}" class="controls__delete">Delete</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

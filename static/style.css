@@ -1,0 +1,183 @@
+ul {
+	list-style-type: none;
+}
+
+.flash__message {
+	display: block;
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	color: #606c76;
+}
+
+.wrapper .container {
+	max-width: 80rem;
+}
+
+.header {
+    background: #555555;
+		background-image: url(http://www.pedroperone.com/bgmusic.png);
+    border-bottom: .1rem solid #d1d1d1;
+    display: block;
+    height: 7.2rem;
+    width: 100%;
+}
+
+.header .header__title {
+	color: #ffffff;
+	display: inline;
+	line-height: 5.2rem;
+	position: relative;
+	vertical-align: -20px;
+}
+
+.header__title .title__text {
+	display: inline;
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	color: #ffffff;
+}
+
+.header__user {
+	float: right;
+	list-style: none;
+	margin-bottom: 0;
+}
+
+.header__user .user__nav {
+	line-height: 5.2rem;
+	text-decoration: none;
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	color: #ffffff;
+	vertical-align: -20px;
+}
+
+.content .container {
+	background: #f4f5f6;
+	margin-bottom: 2rem;
+	padding: 2rem;
+	border-bottom: .1rem solid #d1d1d1;
+}
+
+@media (min-width: 40.0rem) {
+	.content .container {
+		margin-top: 2rem;
+		border: .1rem solid #d1d1d1;
+	}
+}
+
+@media (min-width: 40.0rem) {
+	.categories {
+		border-right: .1rem solid #d1d1d1;
+		margin-right: 2rem;
+	}
+}
+
+.list__header .header__title {
+	font-weight: 700;
+	margin-bottom: 1rem;
+	display: block;
+	text-transform: capitalize;
+}
+
+.list__header .header__bar {
+	border-bottom: .5rem solid #606c76;
+	height: .1rem;
+	display: block;
+	width: 5rem;
+}
+
+.items__item .item__name {
+	text-transform: capitalize;
+}
+
+.items__item .item__type {
+	color: #606c76;
+	font-style: italic;
+	text-transform: capitalize;
+}
+
+.latest__list .list__add {
+	font-size: .8rem;
+	height: 2.8rem;
+	line-height: 2.8rem;
+	padding: 0 1.5rem;
+}
+
+.category-item__header .header__title {
+	font-weight: 700;
+	margin-bottom: 1rem;
+	display: block;
+	text-transform: capitalize;
+}
+
+.category-item__header .header__bar {
+	border-bottom: .5rem solid #606c76;
+	height: .1rem;
+	display: block;
+	width: 5rem;
+}
+
+.category-item__description {
+	margin-bottom: 1rem;
+}
+
+.category-item__controls .controls__edit,
+.category-item__controls .controls__delete,
+.category-item__controls .controls__back {
+	display: inline;
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	margin-right: .2rem;
+}
+
+.category-item__form .form__label {
+	display: inline;
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+}
+
+.category-item__form .form__textarea {
+	min-height: 30rem;
+}
+
+.wrapper .container--login {
+	max-width: 36rem;
+}
+
+.content .container--login {
+	padding: 7.5rem 5rem;
+	margin-top: 20rem;
+	border: .1rem solid #d1d1d1;
+	text-align: center;
+}
+
+.login__separator {
+	font-weight: 700;
+	margin: 20px 0;
+}
+
+.login__button {
+
+}
+
+.login__button--facebook {
+	background: #3B5997;
+	border-color: #3B5997;
+}
+
+.login__button--google {
+	margin-top: 1rem;
+	background: #da4635;
+	border-color: #da4635;
+}

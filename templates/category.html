@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="categories column column-25">
+			<div class="categories__list">
+				<h6 class="list__header">
+					<span class="header__title">Categories</span>
+				</h6>
+				<ul class="list__items">
+					{% for category in categories %}
+						<a href="{{url_for('showCategory', catalog_id = category.id )}}">
+							<li class="items__item">
+								<span class="item__name">{{category.name}}</span>
+							</li>
+						</a>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+		<div class="category-items column column-75">
+			<div class="category-items__list">
+				<h6 class="list__header">
+					<span class="header__title">{{categoryName}} Bands ({{categoryItemsCount}} Items)</span>
+				</h6>
+				<ul class="list__items">
+					{% for categoryItem in categoryItems %}
+						<a href="{{url_for('showCategoryItem', catalog_id = categoryItem.category_id ,item_id = categoryItem.id )}}">
+							<li class="items__item">
+								<span class="item__name">{{categoryItem.name}}</span>
+							</li>
+						</a>
+					{% endfor %}
+				</ul>
+				<!-- <a href="/" class="button u list__add">Add Item</a> -->
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

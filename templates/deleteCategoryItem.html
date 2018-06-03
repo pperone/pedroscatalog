@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="category-item column">
+			<h6 class="category-item__header">
+				<span class="header__title">Delete Band</span>
+			</h6>
+			<form action="#" method="post">
+				<h5 class="category-item__message">Are you sure you want to delete {{categoryItem.name}}?</h5>
+				<a href="{{url_for('showCategoryItem', catalog_id = categoryItem.category_id ,item_id = categoryItem.id )}}" class="button button-outline">Back</a>
+				<input type="submit" value="Delete">
+			</form>
+		</div>
+	</div>
+
+{% endblock %}
