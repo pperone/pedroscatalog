@@ -22,8 +22,8 @@ from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
 
 app = Flask(__name__)
 
-CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())
-['web']['client_id']
+CLIENT_ID = json.loads(open('client_secrets.json',
+                       'r').read())['web']['client_id']
 
 # Connect to Database
 engine = create_engine('sqlite:///itemcatalog.db')
@@ -85,12 +85,12 @@ def showCategory(catalog_id):
     categoryName = category.name
 
     # Get all items of a specific category
-    categoryItems = session.query(CategoryItem).filter_by
-    (category_id=catalog_id).all()
+    categoryItems = session.query(CategoryItem).filter_by(
+                                  category_id=catalog_id).all()
 
     # Get count of category items
-    categoryItemsCount = session.query(CategoryItem).filter_by
-    (category_id=catalog_id).count()
+    categoryItemsCount = session.query(CategoryItem).filter_by(
+                         category_id=catalog_id).count()
 
     return render_template('category.html', categories=categories,
                            categoryItems=categoryItems,
@@ -252,8 +252,8 @@ def gconnect():
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
-        response = make_response(json.dumps('Failed to upgrade the
-                                            authorization code.'), 401)
+        response = make_response(json.dumps('Failed to upgrade the'
+                                            ' authorization code.'), 401)
         response.headers['Content-Type'] = 'application/json'
         return response
 
@@ -273,15 +273,15 @@ def gconnect():
     # Verify that the access token is used for the intended user.
     gplus_id = credentials.id_token['sub']
     if result['user_id'] != gplus_id:
-        response = make_response(json.dumps("Token's user ID doesn't match
-                                            given user ID."), 401)
+        response = make_response(json.dumps("Token's user ID doesn't match"
+                                            " given user ID."), 401)
         response.headers['Content-Type'] = 'application/json'
         return response
 
     # Verify that the access token is valid for this app.
     if result['issued_to'] != CLIENT_ID:
-        response = make_response(json.dumps("Token's client ID does not match
-                                            app's."), 401)
+        response = make_response(json.dumps("Token's client ID does not match"
+                                            " app's."), 401)
         print "Token's client ID does not match app's."
         response.headers['Content-Type'] = 'application/json'
         return response
@@ -290,8 +290,8 @@ def gconnect():
     stored_gplus_id = login_session.get('gplus_id')
 
     if stored_access_token is not None and gplus_id == stored_gplus_id:
-        response = make_response(json.dumps('Current user is already
-                                            connected.'), 200)
+        response = make_response(json.dumps('Current user is already'
+                                            ' connected.'), 200)
         response.headers['Content-Type'] = 'application/json'
         return response
 
@@ -326,8 +326,8 @@ def gdisconnect():
     access_token = login_session.get('access_token')
 
     if access_token is None:
-        response = make_response(json.dumps('Current user not
-                                            connected.'), 401)
+        response = make_response(json.dumps('Current user not'
+                                            ' connected.'), 401)
         response.headers['Content-Type'] = 'application/json'
         return response
 
@@ -337,8 +337,8 @@ def gdisconnect():
 
     if result['status'] != '200':
         # Token was invalid.
-        response = make_response(json.dumps('Failed to revoke token for
-                                            given user.'), 400)
+        response = make_response(json.dumps('Failed to revoke token for'
+                                            ' given user.'), 400)
         response.headers['Content-Type'] = 'application/json'
         return response
 
@@ -353,8 +353,8 @@ def showCategoriesJSON():
 @app.route('/catalog/<int:catalog_id>/JSON')
 @app.route('/catalog/<int:catalog_id>/items/JSON')
 def showCategoryJSON(catalog_id):
-    categoryItems = session.query(CategoryItem).
-    filter_by(category_id=catalog_id).all()
+    categoryItems = session.query(CategoryItem).filter_by(
+                                  category_id=catalog_id).all()
     return jsonify(categoryItems=[categoryItem.serialize for
                                   categoryItem in categoryItems])
 
