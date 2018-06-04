@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="category-item column">
+			<h6 class="category-item__header">
+				<span class="header__title">Add New Category</span>
+			</h6>
+			<form action="#" method="post" class="category-item__form">
+				<fieldset>
+					<label for="" class="form__label">Category Name:</label>
+					<input type="text" name="name" class="form__input">
+
+				</fieldset>
+				<input type="submit" value="add category">
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						{% for message in messages %}
+							 <p class="flash__message">{{ message }}</p>
+						{% endfor %}
+					{% endif %}
+				{% endwith %}
+			</form>
+		</div>
+	</div>
+
+{% endblock %}
