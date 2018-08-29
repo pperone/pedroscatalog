@@ -159,7 +159,7 @@ def editCategoryItem(catalog_id, item_id):
 
     # Check if logged in user is creator of category item
     if creator.id != login_session['user_id']:
-        return redirect('/login')
+        return redirect(url_for('showCategories'))
 
     # Get all categories
     categories = session.query(Category).all()
@@ -196,7 +196,7 @@ def deleteCategoryItem(catalog_id, item_id):
 
     # Check if logged in user is creator of category item
     if creator.id != login_session['user_id']:
-        return redirect('/login')
+        return redirect(url_for('showCategories'))
 
     if request.method == 'POST':
         session.delete(categoryItem)
