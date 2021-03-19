@@ -1,6 +1,6 @@
 Cheetah==2.4.4
 Flask==1.0.2
-Jinja2==2.10
+Jinja2==2.11.3
 Landscape-Client==14.12
 MarkupSafe==1.0
 PAM==0.4.2
